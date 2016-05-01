@@ -1,0 +1,54 @@
+.touch-sizes .slider .track {
+    -fx-padding: 0.5em;
+}
+
+.map-pin {
+    -fx-border-color:white;
+    -fx-border-width:2px;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 2;
+    -fx-effect: dropshadow( two-pass-box, rgba(0, 0, 0, 0.5), 10, 0.0, 0, 10 );
+}
+
+.contrast .map-pin {
+    -fx-background-color: transparent;
+    -fx-border-color:-app-color-hi;
+}
+
+/*------------------ text on image --------------------------- */
+.text-over {
+    -fx-background-color: transparent;
+    -fx-text-alignment:center;
+}
+/*-------------------------- labels -------------------------- */
+
+.contrast .label {    
+    -fx-text-fill: -app-color-hi;
+}
+
+/*-------------------------- slider -------------------------- */
+
+.contrast .slider .track {
+    -fx-background-color: -app-color-hi, -app-color-lo;
+    -fx-background-insets: 0, 1;    
+}
+
+/*------------------------- ListView ------------------------- */
+
+.contrast .list-view {
+    -fx-background-color: -app-color-lo;
+}
+.contrast .list-view .list-cell .text {
+    -fx-fill: -app-color-hi;
+}
+
+.contrast .list-view .list-cell:selected .text {
+    -fx-fill: -app-color-lo;
+}
+
+/*------------------------ ScrollBars ------------------------ */
+
+.contrast .scroll-pane > .corner {
+    -fx-background-color: -app-color-lo;
+    -fx-background-insets: 0;
+}

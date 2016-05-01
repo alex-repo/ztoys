@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="root_vbox" prefHeight="600.0" prefWidth="800.0" stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ap.gdeocr.Controller">
+
+    <SplitPane dividerPositions="0.0" focusTraversable="true" styleClass="pane" VBox.vgrow="ALWAYS"
+               xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <ScrollPane fx:id="scroll_cnrl" fitToWidth="true" maxWidth="-Infinity" minHeight="-Infinity"
+                    minViewportHeight="50.0" minViewportWidth="50.0" minWidth="-Infinity" pannable="true"
+                    prefViewportWidth="150.0" xmlns:fx="http://javafx.com/fxml">
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+            </padding>
+            <FlowPane fx:id="flow_stack" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+            </FlowPane>
+        </ScrollPane>
+        <StackPane>
+            <ScrollPane fx:id="map_scrollpane" vbarPolicy="ALWAYS" hbarPolicy="ALWAYS" pannable="true"
+                        xmlns:fx="http://javafx.com/fxml">
+                <Pane fx:id="img_vbox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                    <ImageView fx:id="image_view" onMouseClicked="#onMouseClickedButton"
+                               onMouseMoved="#onMouseMove" xmlns="http://javafx.com/javafx/8"
+                               xmlns:fx="http://javafx.com/fxml/1"/>
+                    <MenuButton fx:id="map_pin" onMouseClicked="#onMouseClickedButton"
+                                onMouseMoved="#onPinMouseMove">
+                        <items>
+                            <MenuItem fx:id="pin_info" mnemonicParsing="false" text="action..."/>
+                        </items>
+                        <styleClass>
+                            <String fx:value="menu-button"/>
+                            <String fx:value="map-pin"/>
+                        </styleClass>
+                    </MenuButton>
+
+                </Pane>
+            </ScrollPane>
+            <AnchorPane pickOnBounds="false">
+                <VBox>
+                    <AnchorPane.bottomAnchor>
+                        58.0
+                    </AnchorPane.bottomAnchor>
+                    <AnchorPane.rightAnchor>
+                        20.0
+                    </AnchorPane.rightAnchor>
+
+                    <Button fx:id="openMenuItem" mnemonicParsing="false" onAction="#onOpenMenu">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0099-floppy-disk.png"/>
+                            </ImageView>
+                        </graphic>
+                        <VBox.margin>
+                            <Insets top="10."/>
+                        </VBox.margin>
+                    </Button>
+                    <Button fx:id="com_ap_ocr_effects_Gray" mnemonicParsing="false"
+                            onAction="#imageAction"> <!--text="Gray Scale"-->
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0214-contrast.png"/>
+                            </ImageView>
+                        </graphic>
+                        <VBox.margin>
+                            <Insets top="10."/>
+                        </VBox.margin>
+                    </Button>
+                    <Button fx:id="reset" mnemonicParsing="false"
+                            onAction="#resetImage"> <!--text="Reset Image"re-->
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0104-undo2.png"/>
+                            </ImageView>
+                        </graphic>
+                        <VBox.margin>
+                            <Insets top="10."/>
+                        </VBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0269-info.png"/>
+                            </ImageView>
+                        </graphic>
+                        <VBox.margin>
+                            <Insets top="10."/>
+                        </VBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0270-cancel-circle.png"/>
+                            </ImageView>
+                        </graphic>
+                        <VBox.margin>
+                            <Insets top="10."/>
+                        </VBox.margin>
+                    </Button>
+                    <VBox.vgrow>ALWAYS</VBox.vgrow>
+                </VBox>
+                <HBox>
+                    <AnchorPane.bottomAnchor>
+                        20.0
+                    </AnchorPane.bottomAnchor>
+                    <AnchorPane.rightAnchor>
+                        20.0
+                    </AnchorPane.rightAnchor>
+                    <Button mnemonicParsing="false" onAction="#zoomOut">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0137-zoom-out.png"/>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets left="10."/>
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#zoomIn">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@0136-zoom-in.png"/>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets left="10."/>
+                        </HBox.margin>
+                    </Button>
+
+                    <ProgressBar fx:id="progress_bar" prefHeight="28." prefWidth="35.0" progress="0.0">
+                        <HBox.margin>
+                            <Insets left="10."/>
+                        </HBox.margin>
+                    </ProgressBar>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </AnchorPane>
+        </StackPane>
+    </SplitPane>
+</VBox>
