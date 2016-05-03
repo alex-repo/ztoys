@@ -1,29 +1,26 @@
 package com.ap.nn.model;
 
-import java.util.EventObject;
-import java.util.Random;
-import java.util.stream.IntStream;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import com.ap.common.core.AbstractEventListener;
 import com.ap.common.core.ContainerOnList;
-import com.ap.common.model.EuclideanVector;
-import com.ap.common.model.VectorInjective;
-import com.ap.common.model.VectorInjectiveSpace;
-import com.ap.common.util.CommonUtils;
 import com.ap.common.function.Gaussian;
 import com.ap.common.function.Linear;
 import com.ap.common.fx.FxLineChartFactory;
+import com.ap.common.model.EuclideanVector;
+import com.ap.common.model.VectorInjective;
+import com.ap.common.model.VectorInjectiveSpace;
 import com.ap.nn.core.DistanceDoubleCollector;
-import com.ap.nn.core.NucleusContainer;
 import com.ap.nn.core.Network;
 import com.ap.nn.core.NetworkContainer;
 import com.ap.nn.core.Nucleus;
-
+import com.ap.nn.core.NucleusContainer;
 import javafx.scene.Node;
 import javafx.scene.chart.XYChart.Series;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.EventObject;
+import java.util.Random;
+import java.util.stream.IntStream;
 
 public class RBFTest {
 
@@ -36,7 +33,6 @@ public class RBFTest {
 		@Override
 		public void handleEvent(EventObject event) {
 			LMS lr = (LMS) event.getSource();
-			CommonUtils.getLogger(getClass()).debug(lr.getCurrentIteration() + ". iteration | Total network error: " + lr.getTotalNetworkError());
 		}
 	};
 	//FIXME load data

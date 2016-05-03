@@ -4,11 +4,10 @@ import com.ap.common.core.AbstractEventListener;
 import com.ap.common.core.ComparableId;
 import com.ap.common.core.Container;
 import com.ap.common.core.ContainerOnIndexMap;
+import com.ap.common.function.Sigmoid;
 import com.ap.common.model.D2;
 import com.ap.common.model.Kernel;
 import com.ap.common.model.VectorInjectiveSpace;
-import com.ap.common.util.CommonUtils;
-import com.ap.common.function.Sigmoid;
 import com.ap.common.util.IOUtils;
 import com.ap.nn.core.AbstractLayerContainer;
 import com.ap.nn.core.Network;
@@ -101,8 +100,6 @@ public class ConvolutionalOcr {
         @Override
         public void handleEvent(EventObject event) {
             Supervised bp = (Supervised) event.getSource();
-            CommonUtils.getLogger(ConvolutionalOcr.class).debug("Current iteration: " + bp.getCurrentIteration());
-            CommonUtils.getLogger(ConvolutionalOcr.class).debug("Error: " + bp.getTotalNetworkError());
         }
     }
 }

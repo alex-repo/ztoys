@@ -1,11 +1,10 @@
 package com.ap.nn.model;
 
+import com.ap.common.function.DoubleSupplierConsumer;
+import com.ap.common.function.MeanSquaredError;
 import com.ap.common.model.EuclideanVector;
 import com.ap.common.model.VectorInjective;
 import com.ap.common.model.VectorInjectiveSpace;
-import com.ap.common.util.CommonUtils;
-import com.ap.common.function.DoubleSupplierConsumer;
-import com.ap.common.function.MeanSquaredError;
 
 import java.util.Arrays;
 import java.util.OptionalDouble;
@@ -81,7 +80,6 @@ abstract public class Supervised extends Iterative {
 
         totalNetworkError = error.get();
         ctime = System.currentTimeMillis() - ctime;
-        CommonUtils.getLogger(getClass()).debug("LearningEpoch Takes: " + ctime + "ms");
     }
 
     protected void learnPattern(VectorInjective injective) {

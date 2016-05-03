@@ -17,7 +17,6 @@
 package com.ap.common.image;
 
 import com.ap.common.model.Kernel;
-import com.ap.common.util.CommonUtils;
 import com.ap.common.util.ImageUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelFormat;
@@ -75,13 +74,11 @@ public class AbstractImageWrapper implements IImage {
         pixelReader = writableImage.getPixelReader();
         this.writableImage = writableImage;
         initFields(writableImage.toString());
-        CommonUtils.getLogger(getClass()).debug(label + " " + type);
     }
 
     public AbstractImageWrapper(javafx.scene.image.Image image) {
         this.writableImage = getWritebleImage(image);
         initFields(writableImage.toString());
-        CommonUtils.getLogger(getClass()).debug(label + " " + type);
     }
 
     public AbstractImageWrapper(WritablePixelFormat<ByteBuffer> wpixelFormat, byte[] buffer, int width, int height) {
@@ -91,14 +88,12 @@ public class AbstractImageWrapper implements IImage {
         pixelWriter = this.writableImage.getPixelWriter();
         pixelWriter.setPixels(0, 0, width, height, wpixelFormat, buffer, 0, width * 4);
         initFields(writableImage.toString());
-        CommonUtils.getLogger(getClass()).debug(label + " " + type);
     }
 
     public AbstractImageWrapper(String url) {
         javafx.scene.image.Image image = new Image(url);
         this.writableImage = getWritebleImage(image);
         initFields(url);
-        CommonUtils.getLogger(getClass()).debug(label + " " + type);
     }
 
     public AbstractImageWrapper(File file) throws Exception {
@@ -107,7 +102,6 @@ public class AbstractImageWrapper implements IImage {
             this.writableImage = getWritebleImage(image);
             initFields(file.getName());
         }
-        CommonUtils.getLogger(getClass()).debug(label + " " + type);
     }
 
     private WritableImage getWritebleImage(Image image) {
@@ -177,7 +171,6 @@ public class AbstractImageWrapper implements IImage {
     }
 
     public double[] asGrayDoubleArray() {
-        CommonUtils.getLogger(getClass()).trace(getLabel());
         assert pixelFormat.isPremultiplied();
 
         PixelReader reader = writableImage.getPixelReader();

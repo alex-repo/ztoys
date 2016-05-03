@@ -1,12 +1,11 @@
 package com.ap.nn.model;
 
 import com.ap.common.core.ContainerOnList;
+import com.ap.common.function.Gaussian;
 import com.ap.common.model.Cluster;
 import com.ap.common.model.ClusterSpace;
 import com.ap.common.model.EuclideanVector;
 import com.ap.common.model.VectorInjectiveSpace;
-import com.ap.common.util.CommonUtils;
-import com.ap.common.function.Gaussian;
 import com.ap.nn.core.Nucleus;
 import com.ap.nn.core.NucleusContainer;
 import com.ap.nn.core.Sinapse;
@@ -36,7 +35,6 @@ public class RBF /* Radial Basis Function */ extends LMS {
             Nucleus nucleus = layer.get(n);
             double sigma = EuclideanVector.calculateSigma(centroid, nearestNeighbours);
             ((Gaussian) nucleus.getAxonFunction()).setSigma(sigma);
-            CommonUtils.getLogger(getClass()).trace("Nucleus " + nucleus + " sigma " + sigma);
             n++;
         }
     }

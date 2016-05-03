@@ -98,7 +98,7 @@ public class IOUtils {
             }
 
         } catch (IOException ioe) {
-            CommonUtils.getLogger(IOUtils.class).debug(ioe);
+            ioe.printStackTrace();
         }
         return null;
     }
@@ -111,7 +111,7 @@ public class IOUtils {
                 return props.getProperty(name);
             }
         } catch (Exception ioe) {
-            CommonUtils.getLogger(IOUtils.class).debug(ioe);
+            ioe.printStackTrace();
         }
         return null;
     }
@@ -144,22 +144,15 @@ public class IOUtils {
         if (files == null) {
             files = new File[]{};
         }
-
-        CommonUtils.getLogger(IOUtils.class).debug("Working User Directory = " + System.getProperty("user.dir"));
-        CommonUtils.getLogger(IOUtils.class).debug("Load files from Directory = " + fpath.getPath());
         files = IOUtils.filterImage(files);
-        CommonUtils.getLogger(IOUtils.class).debug("Selected files = " + files.length);
-
         return files;
     }
 
     public static File[] filterImage(File[] files) {
         return Arrays.stream(files).filter(f -> {
             if (isImage(f)) {
-                CommonUtils.getLogger(IOUtils.class).trace("File = " + f.getPath() + " selected");
                 return true;
             } else {
-                CommonUtils.getLogger(IOUtils.class).trace("File = " + f.getPath() + " skipped");
                 return false;
             }
         }).toArray(File[]::new);
@@ -176,7 +169,7 @@ public class IOUtils {
             try {
                 images.add(new AbstractImageWrapper(file));
             } catch (Exception ex) {
-                CommonUtils.getLogger(IOUtils.class).error(ex);
+                ex.printStackTrace();
             }
         }
         return images;
