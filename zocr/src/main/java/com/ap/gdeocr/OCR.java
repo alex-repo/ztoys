@@ -6,8 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-//Application class have to be public
-class OCR extends Application {
+public class OCR extends Application {
     private static Parent root;
     private static Scene scene;
 
