@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../../zocr">
       <excludeFolder url="file://$MODULE_DIR$/../../../zocr/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../zocr/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../zocr/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
